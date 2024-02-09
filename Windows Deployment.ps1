@@ -80,8 +80,8 @@ Write-Output "Installing Linux Subsystem..."
 
 # Applications that will be installed can be modified from apps.json file
 # Modify apps.json for your needs
-    winget import $PSScriptRoot/apps/apps.json
-    #winget import $PSScriptRoot/apps/apps.json  # You can also add other app lists here
+    winget import $PSScriptRoot/apps.json
+    #winget import $PSScriptRoot/apps.json  # You can also add other app lists here
 
 # Windows tweaks
     winget uninstall "windows web experience pack" # Removing windows web experience pack aka. widgets
