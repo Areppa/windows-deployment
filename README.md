@@ -1,6 +1,6 @@
 # Windows Deployment Script
 
-This deployment script is designed to be run with new windows install to install all the necessary apps and change settings (settings coming soon).
+This deployment script is designed to be run with new windows install to install all the necessary apps and change settings.
 
 
 # Before running!
