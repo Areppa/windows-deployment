@@ -181,18 +181,6 @@ Write-Output "Enabling NumLock after startup..."
 Write-Output "Disabling Sticky keys prompt..."
 	Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "506"
 
-########################################################################## TASK MANAGER #######################################################################
-# BROKEN! Probably because of the new task manager
-#Write-Output "Showing task manager details..."
-#	$taskmgr = Start-Process -WindowStyle Hidden -FilePath taskmgr.exe -PassThru
-#	Do {
-#		Start-Sleep -Milliseconds 100
-#		$preferences = Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\TaskManager" -Name "Preferences" -ErrorAction SilentlyContinue
-#	} Until ($preferences)
-#	Stop-Process $taskmgr
-#	$preferences.Preferences[28] = 0
-#	Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\TaskManager" -Name "Preferences" -Type Binary -Value $preferences.Preferences
-
 ######################################################################## FILE OPERATIONS ######################################################################
 Write-Output "Showing file operations details..."
 	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager")) {
