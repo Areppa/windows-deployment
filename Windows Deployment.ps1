@@ -10,8 +10,8 @@ Parts of the code have been copied from https://github.com/ChrisTitusTech/winuti
 # Relaunch the script with administrator privileges
 function relaunchAsAdmin {
     If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-        Write-Output "This script requires administrator acces"
-        Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
+        Write-Output "This script requires administrator access"
+        Start-Process wt -ArgumentList "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
         Exit
     }
 }
