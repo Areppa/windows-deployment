@@ -109,11 +109,14 @@ function installSoftware {
 
 function runOOSU {
     # Running O&O ShutUp10 with specific settings
-    Write-Output "Running O&O ShutUp10"
     Import-Module BitsTransfer
-
+    
+    Write-Output "Downloading O&O ShutUp10 configuration file"
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/Areppa/windows-deployment/dev/ooshutup10.cfg" -Destination ooshutup10.cfg
+    Write-Output "Downloading O&O ShutUp10"
     Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
+    
+    Write-Output "Running O&O ShutUp10 with custom settings"
     ./OOSU10.exe ooshutup10.cfg /quiet
 }
 
