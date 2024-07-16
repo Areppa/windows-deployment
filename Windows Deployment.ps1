@@ -16,6 +16,12 @@ function relaunchAsAdmin {
     }
 }
 
+function createRestorePoint {
+    Write-Output "`nCreating restorepoint incase something bad happens"
+        Enable-ComputerRestore -Drive "C:\"
+        Checkpoint-Computer -Description "Windows Deployment Script" -RestorePointType "MODIFY_SETTINGS"
+}
+
 function checkWingetInstallStatus {
     Write-Host "Checking if Winget is Installed..."
     if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe) {
@@ -106,6 +112,7 @@ function runOOSU {
 
 # Actually running the script
     relaunchAsAdmin
+    createRestorePoint
     checkWingetInstallStatus
     installLinuxSubsystem
     installSoftware
