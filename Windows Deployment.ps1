@@ -95,11 +95,21 @@ function installSoftware {
         winget pin add Oracle.VirtualBox --blocking --force  # This blocks VirtualBox from updating. This prevents features from breaking.
 }
 
+function runOOSU {
+    Write-Output "Running O&O ShutUp10"
+    Import-Module BitsTransfer
+
+    Start-BitsTransfer -Source "https://raw.githubusercontent.com/Areppa/windows-deployment/dev/ooshutup10.cfg" -Destination ooshutup10.cfg
+    Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
+    ./OOSU10.exe ooshutup10.cfg /quiet
+}
+
 # Actually running the script
     relaunchAsAdmin
     checkWingetInstallStatus
     installLinuxSubsystem
     installSoftware
+    runOOSU
 
     Write-Output " "
     Write-Output "Software installation is done. Please check if everything is installed correctly"
