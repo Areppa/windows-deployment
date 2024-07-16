@@ -88,7 +88,7 @@ function installLinuxSubsystem {
 
 function installSoftware {
     # Installing software
-        Write-Output "Starting to install software. This might take a while"
+        Write-Output "`nStarting to install software. This might take a while"
         Write-Output " "
 
     # Applications that will be installed can be modified from apps.json file
@@ -111,7 +111,7 @@ function runOOSU {
     # Running O&O ShutUp10 with specific settings
     Import-Module BitsTransfer
     
-    Write-Output "Downloading O&O ShutUp10 configuration file"
+    Write-Output "`nDownloading O&O ShutUp10 configuration file"
     Start-BitsTransfer -Source "https://raw.githubusercontent.com/Areppa/windows-deployment/dev/ooshutup10.cfg" -Destination ooshutup10.cfg
     Write-Output "Downloading O&O ShutUp10"
     Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
