@@ -66,7 +66,7 @@ function checkWingetInstallStatus {
     }
 }
 
-function InstallLinuxSubsystem {
+function installLinuxSubsystem {
     # Installing Linux subsystem for Windows
     Write-Output "Installing Linux Subsystem..."
         If ([System.Environment]::OSVersion.Version.Build -eq 14393) {
@@ -77,26 +77,29 @@ function InstallLinuxSubsystem {
         Enable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 }
 
-# Installing software
-    Write-Output "Starting to install software. This might take a while"
-    Write-Output " "
+function installSoftware {
+    # Installing software
+        Write-Output "Starting to install software. This might take a while"
+        Write-Output " "
 
-# Applications that will be installed can be modified from apps.json file
-# Modify apps.json for your needs
-    winget import $PSScriptRoot/apps.json
-    #winget import $PSScriptRoot/apps.json  # You can also add other app lists here
+    # Applications that will be installed can be modified from apps.json file
+    # Modify apps.json for your needs
+        winget import $PSScriptRoot/apps.json
+        #winget import $PSScriptRoot/apps.json  # You can also add other app lists here
 
-# Windows tweaks
-    winget uninstall "windows web experience pack" # Removing windows web experience pack aka. widgets
+    # Windows tweaks
+        winget uninstall "windows web experience pack" # Removing windows web experience pack aka. widgets
 
-# Pinning apps that I don't want to update automatically
-    winget pin add Microsoft.PowerToys --blocking --force  # This blocks PowerToys from updating. This prevents features from breaking.
-    winget pin add Oracle.VirtualBox --blocking --force  # This blocks VirtualBox from updating. This prevents features from breaking.
+    # Pinning apps that I don't want to update automatically
+        winget pin add Microsoft.PowerToys --blocking --force  # This blocks PowerToys from updating. This prevents features from breaking.
+        winget pin add Oracle.VirtualBox --blocking --force  # This blocks VirtualBox from updating. This prevents features from breaking.
+}
 
 # Actually running the script
     relaunchAsAdmin
     checkWingetInstallStatus
-    InstallLinuxSubsystem
+    installLinuxSubsystem
+    installSoftware
 
     Write-Output " "
     Write-Output "Software installation is done. Please check if everything is installed correctly"
