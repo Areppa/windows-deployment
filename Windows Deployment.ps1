@@ -225,6 +225,10 @@ function serviceTweaks {
 		Stop-Service "DiagTrack" -WarningAction SilentlyContinue
 		Set-Service "DiagTrack" -StartupType Disabled
 
+	# Disabling Windows Recall
+	Write-Output "Trying to disable Windows Recall..."
+		Dism /Online /Disable-Feature /Featurename:Recall
+
 	# OTHER SERVICES
 	Write-Output "Stopping and disabling WAP Push Service..."
 		Stop-Service "dmwappushservice" -WarningAction SilentlyContinue
