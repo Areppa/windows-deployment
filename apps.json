@@ -36,9 +36,6 @@
 					"PackageIdentifier" : "tailscale.tailscale"
 				},
 				{
-					"PackageIdentifier" : "Maxon.CinebenchR23"
-				},
-				{
 					"PackageIdentifier" : "Prusa3D.PrusaSlicer"
 				},
 				{
@@ -49,9 +46,6 @@
 				},
 				{
 					"PackageIdentifier" : "Google.EarthPro"
-				},
-				{
-					"PackageIdentifier" : "Docker.DockerDesktop"
 				},
 				{
 					"PackageIdentifier" : "GitHub.GitHubDesktop"
