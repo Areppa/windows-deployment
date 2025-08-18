@@ -63,7 +63,7 @@
 					"PackageIdentifier" : "Oracle.VirtualBox"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+					"PackageIdentifier" : "VSCodium.VSCodium"
 				},
 				{
 					"PackageIdentifier" : "JetBrains.PyCharm.Community"
