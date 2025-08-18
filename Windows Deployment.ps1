@@ -102,6 +102,7 @@ function installSoftware {
     # Pinning apps that I don't want to update automatically
         winget pin add Microsoft.PowerToys --blocking --force  # This blocks PowerToys from updating. This prevents features from breaking.
         winget pin add Oracle.VirtualBox --blocking --force  # This blocks VirtualBox from updating. This prevents features from breaking.
+		winget pin add Microsoft.Office --blocking --force  # This blocks Office from updating. This prevents features from breaking.
 
     Write-Output " "
     Write-Output "Software installation is done. Please check if everything is installed correctly"
